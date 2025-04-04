@@ -1,0 +1,163 @@
+<!--
+  PlantTrack Pi - Version 1.3
+  A promotional and data display website for a university startup project.
+  Theme: Green, plant-inspired; entirely in English.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PlantTrack Pi - Version 1.2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header and Navigation -->
+  <header class="header">
+    <div class="header__logo">PlantTrack Pi</div>
+    <nav class="header__nav">
+      <a href="#about">About</a>
+      <a href="#data">Project Data</a>
+      <a href="#donation">Donation</a>
+      <a href="#updates">Latest Updates</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section (Promotional) -->
+  <section class="hero">
+    <h1>Welcome to PlantTrack Pi</h1>
+    <p>A university startup dedicated to innovative, data-driven solutions for a greener world.</p>
+    <button onclick="alert('Thank you for exploring PlantTrack Pi!')">Learn More</button>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About PlantTrack Pi</h2>
+    <p>
+      PlantTrack Pi is a groundbreaking initiative that leverages multi-node synergy,
+      real-time data collection, and advanced visualization techniques to monitor plant growth and health.
+      Our project integrates sensor networks, intelligent data analytics, and eco-friendly technology to create
+      a comprehensive platform for environmental research and sustainable development.
+    </p>
+    <p>
+      Focused on innovation and practical application, we empower researchers and enthusiasts alike
+      with tools to monitor and improve plant life. Join us in revolutionizing green technology!
+    </p>
+  </section>
+
+  <!-- Project Data Section -->
+  <section id="data" class="section">
+    <h2>Project Data</h2>
+    <div class="stats-container">
+      <div class="stat-card">
+        <h3>User Count</h3>
+        <p id="statUsers">0000</p>
+      </div>
+      <div class="stat-card">
+        <h3>Engagement</h3>
+        <p id="statEngagement">00%</p>
+      </div>
+      <div class="stat-card">
+        <h3>Success Rate</h3>
+        <p id="statSuccess">00%</p>
+      </div>
+      <div class="stat-card">
+        <h3>Web Views
+        </h3>
+        <p id="statPreview">000</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Latest Updates Section -->
+  <section id="updates" class="section">
+    <h2>Latest Updates</h2>
+    <ul id="newsList">
+      <!-- Updates appended by script.js -->
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <form onsubmit="handleSubmit(event)">
+      <label for="userName">Name:</label>
+      <input type="text" id="userName" name="userName" required />
+      
+      <label for="userEmail">Email:</label>
+      <input type="email" id="userEmail" name="userEmail" required />
+
+      <label for="userMessage">Message:</label>
+      <textarea id="userMessage" name="userMessage" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- ... previous sections remain unchanged ... -->
+
+
+<!-- New Hardware Section -->
+<section id="hardware" class="section">
+  <h2>Hardware Used</h2>
+  <div class="hardware-container">
+    <div class="bubble">ESP32</div>
+    <div class="bubble">STM32</div>
+    <div class="bubble">Raspberry Pi</div>
+    <div class="bubble">Sensors</div>
+    <div class="bubble">Camera Module</div>
+  </div>
+</section>
+
+<!-- Latest Updates Section (existing) -->
+<section id="updates" class="section">
+  <h2>Latest Updates</h2>
+  <ul id="newsList">
+    <!-- Updates appended by script.js -->
+  </ul>
+</section>
+
+
+  
+  <!-- Donation Module -->
+  <section id="donation" class="section">
+    <h2>Support Our Project</h2>
+    <p>Your support helps us continue our research and improve PlantTrack Pi. Consider donating to help us achieve a greener future.</p>
+    <button onclick="alert('Thank you for your donation!')">Donate Now</button>
+  </section>
+
+<!-- Contact Section (existing) -->
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <form onsubmit="handleSubmit(event)">
+    <label for="userName">Name:</label>
+    <input type="text" id="userName" name="userName" required />
+    
+    <label for="userEmail">Email:</label>
+    <input type="email" id="userEmail" name="userEmail" required />
+
+    <label for="userMessage">Message:</label>
+    <textarea id="userMessage" name="userMessage" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<!-- Footer (existing) -->
+<footer class="footer">
+  <p>
+    &copy; <script>document.write(new Date().getFullYear());</script> PlantTrack Pi - All rights reserved.
+  </p>
+</footer>
+
+<!-- Main Script (existing) -->
+<script src="script.js"></script>
