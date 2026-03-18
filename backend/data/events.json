@@ -1,0 +1,215 @@
+[
+  {
+    "timestamp": "2026-03-18T07:08:06.790Z",
+    "type": "TEST_RUN",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Validation run complete — PASS. Passed: 4, Failed: 0, Warned: 0.",
+    "description": "Overall: PASS",
+    "message": "Test run at 2026-03-18T07:08:06.790Z"
+  },
+  {
+    "timestamp": "2026-03-18T07:08:06.821Z",
+    "type": "FAULT_INJECTED",
+    "subsystem": "camera",
+    "faultType": "camera_failure",
+    "details": "Fault injected: camera_failure",
+    "description": "Fault injection triggered by user",
+    "message": "FAULT_INJECTED: camera_failure"
+  },
+  {
+    "timestamp": "2026-03-18T07:16:11.065Z",
+    "type": "TEST_RUN",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Validation run complete — PASS. Passed: 4, Failed: 0, Warned: 0.",
+    "description": "Overall: PASS",
+    "message": "Test run at 2026-03-18T07:16:11.065Z"
+  },
+  {
+    "timestamp": "2026-03-18T07:16:11.960Z",
+    "type": "TEST_RUN",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Validation run complete — PASS. Passed: 4, Failed: 0, Warned: 0.",
+    "description": "Overall: PASS",
+    "message": "Test run at 2026-03-18T07:16:11.960Z"
+  },
+  {
+    "timestamp": "2026-03-18T07:25:20.121Z",
+    "type": "FAULT_INJECTED",
+    "subsystem": "network",
+    "faultType": "network_disconnect",
+    "details": "Fault injected: network_disconnect",
+    "description": "Fault injection triggered by user",
+    "message": "FAULT_INJECTED: network_disconnect"
+  },
+  {
+    "timestamp": "2026-03-18T07:25:20.149Z",
+    "type": "TEST_RUN",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Validation run complete — FAIL. Passed: 1, Failed: 1, Warned: 2.",
+    "description": "Overall: FAIL",
+    "message": "Test run at 2026-03-18T07:25:20.149Z"
+  },
+  {
+    "timestamp": "2026-03-18T07:25:20.149Z",
+    "type": "WARNING",
+    "subsystem": "camera",
+    "faultType": null,
+    "details": "Latency 55.2ms exceeds threshold (40ms).",
+    "description": "Latency 55.2ms exceeds threshold (40ms).",
+    "message": "Camera Module: WARN"
+  },
+  {
+    "timestamp": "2026-03-18T07:25:20.149Z",
+    "type": "WARNING",
+    "subsystem": "storage",
+    "faultType": null,
+    "details": "Write latency 39.8ms exceeds threshold (30ms).",
+    "description": "Write latency 39.8ms exceeds threshold (30ms).",
+    "message": "SD Storage: WARN"
+  },
+  {
+    "timestamp": "2026-03-18T07:25:20.149Z",
+    "type": "FAULT_DETECTED",
+    "subsystem": "connectivity",
+    "faultType": null,
+    "details": "Network interface down. No DHCP lease or link detected.",
+    "description": "Network interface down. No DHCP lease or link detected.",
+    "message": "Network Connectivity: FAIL"
+  },
+  {
+    "timestamp": "2026-03-18T07:25:20.172Z",
+    "type": "FAULTS_CLEARED",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Cleared 1 active fault(s)",
+    "description": "All faults cleared by user",
+    "message": "FAULTS_CLEARED: 1 removed"
+  },
+  {
+    "timestamp": "2026-03-18T07:28:07.610Z",
+    "type": "FAULT_INJECTED",
+    "subsystem": "network",
+    "faultType": "network_disconnect",
+    "details": "Fault injected: network_disconnect",
+    "description": "Fault injection triggered by user",
+    "message": "FAULT_INJECTED: network_disconnect"
+  },
+  {
+    "timestamp": "2026-03-18T07:28:07.643Z",
+    "type": "TEST_RUN",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Validation run complete — FAIL. Passed: 3, Failed: 1, Warned: 0.",
+    "description": "Overall: FAIL",
+    "message": "Test run at 2026-03-18T07:28:07.643Z"
+  },
+  {
+    "timestamp": "2026-03-18T07:28:07.643Z",
+    "type": "FAULT_DETECTED",
+    "subsystem": "connectivity",
+    "faultType": null,
+    "details": "Network interface down. No DHCP lease or link detected.",
+    "description": "Network interface down. No DHCP lease or link detected.",
+    "message": "Network Connectivity: FAIL"
+  },
+  {
+    "timestamp": "2026-03-18T07:28:07.673Z",
+    "type": "FAULTS_CLEARED",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Cleared 1 active fault(s)",
+    "description": "All faults cleared by user",
+    "message": "FAULTS_CLEARED: 1 removed"
+  },
+  {
+    "timestamp": "2026-03-18T07:29:03.341Z",
+    "type": "NETWORK_TIMEOUT",
+    "subsystem": "connectivity",
+    "faultType": null,
+    "details": "ICMP request timed out on wlan0 — simulated transient packet loss"
+  },
+  {
+    "timestamp": "2026-03-18T07:29:43.342Z",
+    "type": "NETWORK_TIMEOUT",
+    "subsystem": "connectivity",
+    "faultType": null,
+    "details": "ICMP request timed out on wlan0 — simulated transient packet loss"
+  },
+  {
+    "timestamp": "2026-03-18T07:29:53.593Z",
+    "type": "NETWORK_DISCONNECTED",
+    "subsystem": "connectivity",
+    "faultType": null,
+    "details": "Interface wlan0 link lost — no DHCP lease (fault injection active)"
+  },
+  {
+    "timestamp": "2026-03-18T07:29:53.593Z",
+    "type": "FAULT_INJECTED",
+    "subsystem": "network",
+    "faultType": "network_disconnect",
+    "details": "Fault injected: network_disconnect",
+    "description": "Fault injection triggered by user",
+    "message": "FAULT_INJECTED: network_disconnect"
+  },
+  {
+    "timestamp": "2026-03-18T07:29:53.619Z",
+    "type": "NETWORK_RECOVERED",
+    "subsystem": "connectivity",
+    "faultType": null,
+    "details": "Interface wlan0 link restored — DHCP lease acquired, IP 192.168.1.47"
+  },
+  {
+    "timestamp": "2026-03-18T07:29:53.619Z",
+    "type": "FAULTS_CLEARED",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Cleared 1 active fault(s)",
+    "description": "All faults cleared by user",
+    "message": "FAULTS_CLEARED: 1 removed"
+  },
+  {
+    "timestamp": "2026-03-18T07:29:53.643Z",
+    "type": "TEST_RUN",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Validation run complete — PASS. Passed: 4, Failed: 0, Warned: 0.",
+    "description": "Overall: PASS",
+    "message": "Test run at 2026-03-18T07:29:53.643Z"
+  },
+  {
+    "timestamp": "2026-03-18T07:31:49.645Z",
+    "type": "NETWORK_TIMEOUT",
+    "subsystem": "connectivity",
+    "faultType": null,
+    "details": "ICMP request timed out on wlan0 — simulated transient packet loss"
+  },
+  {
+    "timestamp": "2026-03-18T07:35:29.660Z",
+    "type": "NETWORK_TIMEOUT",
+    "subsystem": "connectivity",
+    "faultType": null,
+    "details": "ICMP request timed out on wlan0 — simulated transient packet loss"
+  },
+  {
+    "timestamp": "2026-03-18T08:00:55.092Z",
+    "type": "FAULT_INJECTED",
+    "subsystem": "storage",
+    "faultType": "storage_failure",
+    "details": "Fault injected: storage_failure",
+    "description": "Fault injection triggered by user",
+    "message": "FAULT_INJECTED: storage_failure"
+  },
+  {
+    "timestamp": "2026-03-18T08:00:56.559Z",
+    "type": "FAULTS_CLEARED",
+    "subsystem": "all",
+    "faultType": null,
+    "details": "Cleared 1 active fault(s)",
+    "description": "All faults cleared by user",
+    "message": "FAULTS_CLEARED: 1 removed"
+  }
+]

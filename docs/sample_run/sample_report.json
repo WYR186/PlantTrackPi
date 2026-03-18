@@ -1,0 +1,87 @@
+{
+  "reportId": "RPT-1742377425881",
+  "timestamp": "2026-03-19T09:23:45.881Z",
+  "overallStatus": "WARN",
+  "connectivitySection": {
+    "status": "PASS",
+    "connected": true,
+    "interfaceName": "wlan0",
+    "ssid": "PlantNet-5GHz",
+    "ipAddress": "192.168.1.47",
+    "latencyMs": 38.4,
+    "packetLossEstimate": 0,
+    "timeoutCount": 1,
+    "lastDisconnect": null,
+    "lastReconnect": null,
+    "recentTransitions": [
+      {
+        "type": "NETWORK_TIMEOUT",
+        "timestamp": "2026-03-19T09:21:15.004Z",
+        "details": "ICMP request timed out on wlan0 — simulated transient packet loss"
+      }
+    ]
+  },
+  "subsystemSummary": [
+    {
+      "id": "camera",
+      "name": "Camera Module",
+      "status": "PASS",
+      "latency": 14.2,
+      "lastChecked": "2026-03-19T09:23:45.872Z",
+      "notes": ""
+    },
+    {
+      "id": "sensors",
+      "name": "Environmental Sensors",
+      "status": "PASS",
+      "latency": 4.8,
+      "lastChecked": "2026-03-19T09:23:45.872Z",
+      "notes": ""
+    },
+    {
+      "id": "storage",
+      "name": "SD Storage",
+      "status": "WARN",
+      "latency": 34.1,
+      "lastChecked": "2026-03-19T09:23:45.872Z",
+      "notes": "Write latency 34.1ms exceeds threshold (30ms)."
+    },
+    {
+      "id": "connectivity",
+      "name": "Network Connectivity",
+      "status": "PASS",
+      "latency": 38.4,
+      "lastChecked": "2026-03-19T09:23:45.872Z",
+      "notes": "SSID: PlantNet-5GHz, IP: 192.168.1.47, loss: 0%."
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 3,
+    "failed": 0,
+    "warned": 1
+  },
+  "metrics": {
+    "timestamp": "2026-03-19T09:23:40.112Z",
+    "cpuUsage": 28.3,
+    "memoryUsage": 44.7,
+    "temperature": 53.2,
+    "cameraLatency": 14.2,
+    "sensorLatency": 4.8,
+    "networkLatency": 38.4,
+    "storageWriteLatency": 34.1,
+    "faultCount": 0,
+    "wifiConnected": true,
+    "interfaceName": "wlan0",
+    "ssid": "PlantNet-5GHz",
+    "ipAddress": "192.168.1.47",
+    "networkTimeoutCount": 1,
+    "packetLossEstimate": 0,
+    "source": "simulation"
+  },
+  "activeFaults": [],
+  "rootCauseNotes": [
+    "Storage write latency elevated. SD card may be near end of write-cycle life. Monitor with iostat."
+  ],
+  "simulationMode": true
+}

@@ -1,0 +1,8 @@
+{"timestamp":"2026-03-19T09:20:02.113Z","type":"TEST_RUN","subsystem":"all","faultType":null,"details":"Validation run complete — PASS. Passed: 4, Failed: 0, Warned: 0."}
+{"timestamp":"2026-03-19T09:21:15.004Z","type":"NETWORK_TIMEOUT","subsystem":"connectivity","faultType":null,"details":"ICMP request timed out on wlan0 — simulated transient packet loss"}
+{"timestamp":"2026-03-19T09:22:08.451Z","type":"FAULT_INJECTED","subsystem":"storage","faultType":"storage_failure","details":"Fault injected: storage_failure"}
+{"timestamp":"2026-03-19T09:22:08.502Z","type":"TEST_RUN","subsystem":"all","faultType":null,"details":"Validation run complete — FAIL. Passed: 3, Failed: 1, Warned: 0."}
+{"timestamp":"2026-03-19T09:22:08.514Z","type":"FAULT_DETECTED","subsystem":"storage","faultType":"storage_failure","details":"SD write failed — I/O error on mmcblk0."}
+{"timestamp":"2026-03-19T09:22:19.882Z","type":"FAULTS_CLEARED","subsystem":"all","faultType":null,"details":"Cleared 1 active fault(s)"}
+{"timestamp":"2026-03-19T09:23:45.872Z","type":"TEST_RUN","subsystem":"all","faultType":null,"details":"Validation run complete — WARN. Passed: 3, Failed: 0, Warned: 1."}
+{"timestamp":"2026-03-19T09:23:45.891Z","type":"WARNING","subsystem":"storage","faultType":null,"details":"Write latency 34.1ms exceeds threshold (30ms)."}

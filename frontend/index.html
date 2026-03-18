@@ -1,163 +1,363 @@
-<!--
-  PlantTrack Pi - Version 1.3
-  A promotional and data display website for a university startup project.
-  Theme: Green, plant-inspired; entirely in English.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PlantTrack Pi - Version 1.2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlantTrack Pi — Embedded Validation &amp; Diagnostics Framework</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
-  <!-- Header and Navigation -->
+  <!-- Header / Nav -->
   <header class="header">
     <div class="header__logo">PlantTrack Pi</div>
     <nav class="header__nav">
+      <a href="#overview">Overview</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#telemetry">Telemetry</a>
+      <a href="#faults">Faults</a>
+      <a href="#report">Report</a>
+      <a href="#connectivity">Connectivity</a>
+      <a href="#factory">Factory Mode</a>
+      <a href="#hardware">Hardware</a>
       <a href="#about">About</a>
-      <a href="#data">Project Data</a>
-      <a href="#donation">Donation</a>
-      <a href="#updates">Latest Updates</a>
-      <a href="#contact">Contact Us</a>
     </nav>
   </header>
 
-  <!-- Hero Section (Promotional) -->
-  <section class="hero">
-    <h1>Welcome to PlantTrack Pi</h1>
-    <p>A university startup dedicated to innovative, data-driven solutions for a greener world.</p>
-    <button onclick="alert('Thank you for exploring PlantTrack Pi!')">Learn More</button>
+  <!-- Hero -->
+  <section class="hero" id="overview">
+    <div class="hero__content">
+      <h1>Linux-Based Embedded Validation &amp; Diagnostics Framework</h1>
+      <p>Automated subsystem health validation, fault injection, and real-time telemetry for Raspberry Pi-class embedded systems.</p>
+      <span class="hero__badge">SIMULATION MODE ACTIVE</span>
+    </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <h2>About PlantTrack Pi</h2>
-    <p>
-      PlantTrack Pi is a groundbreaking initiative that leverages multi-node synergy,
-      real-time data collection, and advanced visualization techniques to monitor plant growth and health.
-      Our project integrates sensor networks, intelligent data analytics, and eco-friendly technology to create
-      a comprehensive platform for environmental research and sustainable development.
-    </p>
-    <p>
-      Focused on innovation and practical application, we empower researchers and enthusiasts alike
-      with tools to monitor and improve plant life. Join us in revolutionizing green technology!
-    </p>
-  </section>
-
-  <!-- Project Data Section -->
-  <section id="data" class="section">
-    <h2>Project Data</h2>
+  <!-- System Summary -->
+  <section class="section" id="summary">
+    <h2>System Summary</h2>
     <div class="stats-container">
       <div class="stat-card">
-        <h3>User Count</h3>
-        <p id="statUsers">0000</p>
+        <h3>Overall Status</h3>
+        <p id="summaryStatus" class="status-value">—</p>
       </div>
       <div class="stat-card">
-        <h3>Engagement</h3>
-        <p id="statEngagement">00%</p>
+        <h3>Active Subsystems</h3>
+        <p id="summarySubsystems" class="status-value">—</p>
       </div>
       <div class="stat-card">
-        <h3>Success Rate</h3>
-        <p id="statSuccess">00%</p>
+        <h3>Last Test Run</h3>
+        <p id="summaryLastRun" class="status-value">—</p>
       </div>
       <div class="stat-card">
-        <h3>Web Views
-        </h3>
-        <p id="statPreview">000</p>
+        <h3>Fault Count</h3>
+        <p id="summaryFaultCount" class="status-value">—</p>
       </div>
     </div>
   </section>
 
-
-  <!-- Latest Updates Section -->
-  <section id="updates" class="section">
-    <h2>Latest Updates</h2>
-    <ul id="newsList">
-      <!-- Updates appended by script.js -->
-    </ul>
+  <!-- Validation Dashboard -->
+  <section class="section section--wide" id="dashboard">
+    <h2>Validation Dashboard</h2>
+    <p class="section__subtitle">Per-subsystem health check results. Run tests to refresh status.</p>
+    <div id="subsystemCards" class="subsystem-grid">
+      <div class="subsystem-card subsystem-card--loading">
+        <p>Loading subsystem status...</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <h2>Contact Us</h2>
-    <form onsubmit="handleSubmit(event)">
+  <!-- Connectivity Status Panel -->
+  <section class="section section--wide" id="connectivity">
+    <h2>Connectivity Status</h2>
+    <p class="section__subtitle">Wi-Fi interface health, reachability metrics, and network transition history.</p>
+
+    <div class="connectivity-grid">
+      <!-- Left: interface + link info -->
+      <div class="connectivity-card">
+        <div class="connectivity-card__header">
+          <span class="connectivity-card__title">Network Interface</span>
+          <span id="wifiBadge" class="wifi-badge wifi-badge--unknown">—</span>
+        </div>
+        <div class="connectivity-row">
+          <span class="connectivity-label">Interface</span>
+          <span id="connInterface">—</span>
+        </div>
+        <div class="connectivity-row">
+          <span class="connectivity-label">SSID</span>
+          <span id="connSsid">—</span>
+        </div>
+        <div class="connectivity-row">
+          <span class="connectivity-label">IP Address</span>
+          <span id="connIp" class="connectivity-mono">—</span>
+        </div>
+        <div class="connectivity-row">
+          <span class="connectivity-label">Last Disconnect</span>
+          <span id="connLastDisconnect">—</span>
+        </div>
+        <div class="connectivity-row">
+          <span class="connectivity-label">Last Reconnect</span>
+          <span id="connLastReconnect">—</span>
+        </div>
+      </div>
+
+      <!-- Right: reachability metrics -->
+      <div class="connectivity-card">
+        <div class="connectivity-card__header">
+          <span class="connectivity-card__title">Reachability Metrics</span>
+          <span class="connectivity-label" style="font-size:0.8em;">Simulated</span>
+        </div>
+        <div class="connectivity-stat-row">
+          <div class="connectivity-stat">
+            <span class="connectivity-stat__value" id="connLatency">—</span>
+            <span class="connectivity-stat__label">RTT (ms)</span>
+          </div>
+          <div class="connectivity-stat">
+            <span class="connectivity-stat__value" id="connPacketLoss">—</span>
+            <span class="connectivity-stat__label">Packet Loss</span>
+          </div>
+          <div class="connectivity-stat">
+            <span class="connectivity-stat__value" id="connTimeouts">—</span>
+            <span class="connectivity-stat__label">Timeouts</span>
+          </div>
+        </div>
+
+        <!-- Recent transition events -->
+        <div class="connectivity-transitions">
+          <h4 class="connectivity-transitions__title">Recent Transitions</h4>
+          <ul id="connTransitionList" class="transition-list">
+            <li class="transition-list__empty">No transitions recorded yet.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Controls -->
+  <section class="section section--wide controls-panel" id="controls">
+    <h2>Controls</h2>
+    <div class="controls__row">
+      <button id="btnRunTests" class="btn-run-tests">Run Validation</button>
+      <button id="btnClearFaults" class="btn-clear-faults">Clear Faults</button>
+    </div>
+    <div class="controls__row controls__row--faults">
+      <span class="controls__label">Inject Fault:</span>
+      <button class="btn-inject-fault" data-fault="camera_failure">Camera Failure</button>
+      <button class="btn-inject-fault" data-fault="sensor_timeout">Sensor Timeout</button>
+      <button class="btn-inject-fault" data-fault="network_disconnect">Network Disconnect</button>
+      <button class="btn-inject-fault" data-fault="storage_failure">Storage Failure</button>
+    </div>
+    <p id="controlsStatus" class="controls__status"></p>
+  </section>
+
+  <!-- Telemetry Trends -->
+  <section class="section section--wide" id="telemetry">
+    <h2>Telemetry Trends</h2>
+    <p class="section__subtitle">Live metrics collected every 10 seconds from the validation engine.</p>
+    <div class="charts-grid">
+      <div class="chart-container">
+        <h3>CPU Usage (%)</h3>
+        <canvas id="chartCpu"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Memory Usage (%)</h3>
+        <canvas id="chartMemory"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Temperature (°C)</h3>
+        <canvas id="chartTemp"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Camera Latency (ms)</h3>
+        <canvas id="chartCamLatency"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Network RTT (ms)</h3>
+        <canvas id="chartNetLatency"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fault Events -->
+  <section class="section section--wide" id="faults">
+    <h2>Fault Events</h2>
+    <p class="section__subtitle">Recent system events including fault injections and test runs.</p>
+    <div class="table-wrapper">
+      <table class="fault-table" id="faultEventsTable">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Type</th>
+            <th>Subsystem</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody id="faultEventsBody">
+          <tr>
+            <td colspan="4" class="table-empty">No events recorded yet. Run validation to generate events.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Latest Report -->
+  <section class="section section--wide report-section" id="report">
+    <h2>Latest Validation Report</h2>
+    <div id="reportContainer">
+      <p class="report-empty">No report generated yet. Click "Run Validation" to generate the first report.</p>
+    </div>
+  </section>
+
+  <!-- Factory Validation Mode -->
+  <section class="section section--wide factory-section" id="factory">
+    <h2>Factory Validation Mode</h2>
+    <p class="section__subtitle">
+      Run a fixed, sequential 4-step validation sequence with explicit pass/fail thresholds.
+      Each run generates a traceable run ID for traceability.
+    </p>
+
+    <div class="factory-controls">
+      <button id="btnFactoryRun" class="btn-factory-run">Start Factory Validation</button>
+      <span id="factoryRunId" class="factory-run-id"></span>
+    </div>
+
+    <!-- Step progress -->
+    <div id="factorySteps" class="factory-steps">
+      <div class="factory-step" id="fstep-camera">
+        <span class="factory-step__num">1</span>
+        <span class="factory-step__name">Camera Module</span>
+        <span class="factory-step__iface">CSI / V4L2</span>
+        <span class="factory-step__badge factory-step__badge--idle">—</span>
+        <span class="factory-step__latency"></span>
+      </div>
+      <div class="factory-step" id="fstep-sensors">
+        <span class="factory-step__num">2</span>
+        <span class="factory-step__name">Environmental Sensors</span>
+        <span class="factory-step__iface">I2C GPIO 2/3</span>
+        <span class="factory-step__badge factory-step__badge--idle">—</span>
+        <span class="factory-step__latency"></span>
+      </div>
+      <div class="factory-step" id="fstep-storage">
+        <span class="factory-step__num">3</span>
+        <span class="factory-step__name">SD Storage</span>
+        <span class="factory-step__iface">mmcblk0</span>
+        <span class="factory-step__badge factory-step__badge--idle">—</span>
+        <span class="factory-step__latency"></span>
+      </div>
+      <div class="factory-step" id="fstep-connectivity">
+        <span class="factory-step__num">4</span>
+        <span class="factory-step__name">Network Connectivity</span>
+        <span class="factory-step__iface">wlan0 / ICMP</span>
+        <span class="factory-step__badge factory-step__badge--idle">—</span>
+        <span class="factory-step__latency"></span>
+      </div>
+    </div>
+
+    <!-- Result summary + export -->
+    <div id="factoryResult" class="factory-result" style="display:none;">
+      <div class="factory-result__header">
+        <span id="factoryOverall" class="factory-overall"></span>
+        <button id="btnFactoryExport" class="btn-factory-export" style="display:none;">Export Report (JSON)</button>
+      </div>
+      <p id="factoryResultDetail" class="factory-result__detail"></p>
+      <p style="font-size:0.82em;color:#aaa;margin-top:0.3em;">Simulation mode — values are synthetic</p>
+    </div>
+
+    <!-- Past runs list -->
+    <div class="factory-history">
+      <h3>Past Runs</h3>
+      <ul id="factoryRunsList" class="factory-runs-list">
+        <li class="factory-runs-empty">No factory runs yet.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Hardware & Architecture -->
+  <section class="section section--wide" id="hardware">
+    <h2>Hardware &amp; Architecture</h2>
+    <p class="section__subtitle">Target hardware stack for the PlantTrack Pi validation framework.</p>
+    <div class="hardware-container">
+      <div class="bubble">Raspberry Pi 4</div>
+      <div class="bubble">ESP32</div>
+      <div class="bubble">STM32</div>
+      <div class="bubble">Camera Module (CSI)</div>
+      <div class="bubble">Environmental Sensors (I2C)</div>
+      <div class="bubble">SD Storage</div>
+      <div class="bubble">Network Interface</div>
+      <div class="bubble">Linux (Raspberry Pi OS)</div>
+    </div>
+    <div class="arch-diagram">
+      <pre class="arch-pre">
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                    Raspberry Pi 4 (Host)                        │
+  │                                                                 │
+  │   ┌──────────────┐    ┌──────────────┐    ┌────────────────┐   │
+  │   │  Camera (CSI)│    │ Sensors (I2C)│    │  SD Storage    │   │
+  │   │  OV5647      │    │ DHT22 / BMP  │    │  mmcblk0       │   │
+  │   └──────┬───────┘    └──────┬───────┘    └──────┬─────────┘   │
+  │          │                   │                   │             │
+  │          └───────────────────┼───────────────────┘             │
+  │                              │                                  │
+  │                   ┌──────────▼──────────┐                      │
+  │                   │  Validation Engine  │                      │
+  │                   │  (Node.js Backend)  │                      │
+  │                   └──────────┬──────────┘                      │
+  │                              │                                  │
+  │              ┌───────────────┼───────────────┐                 │
+  │              │               │               │                 │
+  │   ┌──────────▼──────┐  ┌────▼────┐  ┌───────▼────────┐        │
+  │   │ Telemetry        │  │  REST   │  │  Report Store  │        │
+  │   │ Pipeline         │  │  API    │  │  (JSON files)  │        │
+  │   │ (metrics.json)   │  │ :3000   │  │                │        │
+  │   └──────────────────┘  └────┬────┘  └────────────────┘        │
+  │                              │                                  │
+  └──────────────────────────────┼──────────────────────────────────┘
+                                 │
+                    ┌────────────▼────────────┐
+                    │   Browser Dashboard     │
+                    │   (Chart.js + Fetch)    │
+                    └─────────────────────────┘
+      </pre>
+    </div>
+  </section>
+
+  <!-- About / Contact -->
+  <section class="section" id="about">
+    <h2>About</h2>
+    <p>
+      PlantTrack Pi is a Linux-based embedded validation and diagnostics framework targeting Raspberry Pi-class
+      devices. It provides automated subsystem self-tests, real-time telemetry collection, fault injection for
+      resilience testing, and rule-based root cause analysis — all accessible through a browser-based dashboard.
+    </p>
+    <p style="margin-top:1em;">
+      The system runs in <strong>simulation mode</strong> when real hardware is not connected, generating
+      realistic telemetry values and fault scenarios. Extending to real hardware requires replacing the
+      simulation service with actual system calls (v4l2, i2c-tools, df, ping).
+    </p>
+
+    <h2 style="margin-top:2em;">Contact</h2>
+    <form id="contactForm">
       <label for="userName">Name:</label>
       <input type="text" id="userName" name="userName" required />
-      
+
       <label for="userEmail">Email:</label>
       <input type="email" id="userEmail" name="userEmail" required />
 
       <label for="userMessage">Message:</label>
-      <textarea id="userMessage" name="userMessage" required></textarea>
+      <textarea id="userMessage" name="userMessage" rows="4" required></textarea>
 
-      <button type="submit">Submit</button>
+      <button type="submit">Send Message</button>
     </form>
+    <p id="contactStatus" class="contact-status"></p>
   </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <span id="footerYear"></span> PlantTrack Pi — Embedded Validation &amp; Diagnostics Framework. Simulation mode active.</p>
+  </footer>
 
-  <!-- Main Script -->
   <script src="script.js"></script>
 </body>
 </html>
-
-<!-- ... previous sections remain unchanged ... -->
-
-
-<!-- New Hardware Section -->
-<section id="hardware" class="section">
-  <h2>Hardware Used</h2>
-  <div class="hardware-container">
-    <div class="bubble">ESP32</div>
-    <div class="bubble">STM32</div>
-    <div class="bubble">Raspberry Pi</div>
-    <div class="bubble">Sensors</div>
-    <div class="bubble">Camera Module</div>
-  </div>
-</section>
-
-<!-- Latest Updates Section (existing) -->
-<section id="updates" class="section">
-  <h2>Latest Updates</h2>
-  <ul id="newsList">
-    <!-- Updates appended by script.js -->
-  </ul>
-</section>
-
-
-  
-  <!-- Donation Module -->
-  <section id="donation" class="section">
-    <h2>Support Our Project</h2>
-    <p>Your support helps us continue our research and improve PlantTrack Pi. Consider donating to help us achieve a greener future.</p>
-    <button onclick="alert('Thank you for your donation!')">Donate Now</button>
-  </section>
-
-<!-- Contact Section (existing) -->
-<section id="contact" class="section">
-  <h2>Contact Us</h2>
-  <form onsubmit="handleSubmit(event)">
-    <label for="userName">Name:</label>
-    <input type="text" id="userName" name="userName" required />
-    
-    <label for="userEmail">Email:</label>
-    <input type="email" id="userEmail" name="userEmail" required />
-
-    <label for="userMessage">Message:</label>
-    <textarea id="userMessage" name="userMessage" required></textarea>
-
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-<!-- Footer (existing) -->
-<footer class="footer">
-  <p>
-    &copy; <script>document.write(new Date().getFullYear());</script> PlantTrack Pi - All rights reserved.
-  </p>
-</footer>
-
-<!-- Main Script (existing) -->
-<script src="script.js"></script>

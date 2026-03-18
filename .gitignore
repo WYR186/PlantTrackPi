@@ -1,6 +1,9 @@
 # Node.js
 /backend/node_modules/
 
+# Factory run outputs (generated at runtime)
+/backend/data/factory_runs/*.json
+
 # 环境变量
 /backend/.env
 

@@ -1,0 +1,92 @@
+{
+  "reportId": "RPT-1773818993643",
+  "timestamp": "2026-03-18T07:29:53.643Z",
+  "overallStatus": "PASS",
+  "connectivitySection": {
+    "status": "PASS",
+    "connected": true,
+    "interfaceName": "wlan0",
+    "ssid": "PlantNet-5GHz",
+    "ipAddress": "192.168.1.47",
+    "latencyMs": 46.9,
+    "packetLossEstimate": 0,
+    "timeoutCount": 1,
+    "lastDisconnect": "2026-03-18T07:29:53.593Z",
+    "lastReconnect": "2026-03-18T07:29:53.619Z",
+    "recentTransitions": [
+      {
+        "type": "NETWORK_RECOVERED",
+        "timestamp": "2026-03-18T07:29:53.619Z",
+        "details": "Interface wlan0 link restored — DHCP lease acquired, IP 192.168.1.47"
+      },
+      {
+        "type": "NETWORK_DISCONNECTED",
+        "timestamp": "2026-03-18T07:29:53.593Z",
+        "details": "Interface wlan0 link lost — no DHCP lease (fault injection active)"
+      }
+    ]
+  },
+  "subsystemSummary": [
+    {
+      "id": "camera",
+      "name": "Camera Module",
+      "status": "PASS",
+      "latency": 16.5,
+      "lastChecked": "2026-03-18T07:29:53.643Z",
+      "notes": ""
+    },
+    {
+      "id": "sensors",
+      "name": "Environmental Sensors",
+      "status": "PASS",
+      "latency": 3.8,
+      "lastChecked": "2026-03-18T07:29:53.643Z",
+      "notes": ""
+    },
+    {
+      "id": "storage",
+      "name": "SD Storage",
+      "status": "PASS",
+      "latency": 13.4,
+      "lastChecked": "2026-03-18T07:29:53.643Z",
+      "notes": ""
+    },
+    {
+      "id": "connectivity",
+      "name": "Network Connectivity",
+      "status": "PASS",
+      "latency": 46.9,
+      "lastChecked": "2026-03-18T07:29:53.643Z",
+      "notes": "SSID: PlantNet-5GHz, IP: 192.168.1.47, loss: 0%."
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "warned": 0
+  },
+  "metrics": {
+    "timestamp": "2026-03-18T07:29:49.637Z",
+    "cpuUsage": 30.8,
+    "memoryUsage": 47.8,
+    "temperature": 52.9,
+    "cameraLatency": 14.1,
+    "sensorLatency": 4.2,
+    "networkLatency": 47.1,
+    "storageWriteLatency": 11.5,
+    "faultCount": 0,
+    "wifiConnected": true,
+    "interfaceName": "wlan0",
+    "ssid": "PlantNet-5GHz",
+    "ipAddress": "192.168.1.47",
+    "networkTimeoutCount": 0,
+    "packetLossEstimate": 0,
+    "source": "simulation"
+  },
+  "activeFaults": [],
+  "rootCauseNotes": [
+    "All subsystems nominal. No corrective action required."
+  ],
+  "simulationMode": true
+}
